@@ -21,6 +21,7 @@ import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.nio.file.Paths;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.FontUIResource;
@@ -57,7 +58,8 @@ public class Main {
     if (startup.shallQuit()) System.exit(0);
 
     try {
-      startup.run();
+//      startup.run();
+        CLIReader.read(Paths.get(args[0]).toFile());
     } catch (Throwable e) {
       final var strWriter = new StringWriter();
       final var printWriter = new PrintWriter(strWriter);
